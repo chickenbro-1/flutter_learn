@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_layout/Profile/showDialog.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -7,12 +8,17 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  void _onItemTapped(int index) {
+    DialogHelper.showDevelopmentDialog(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SafeArea(
         // 添加 SafeArea
-        child: Scaffold(
+        child:
+      Scaffold(
           backgroundColor: Color(0xFFF2F2F2),
           appBar: AppBar(
             elevation: 0,
@@ -105,7 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         backgroundImage: AssetImage('assets/images/paypal.png'),
                       ),
                     ),
-                    title: Text('\$0.00',
+                    title: Text('\$99932.00',
                         style: TextStyle(
                             fontSize: 24, fontWeight: FontWeight.bold)),
                     subtitle: Text(
@@ -132,8 +138,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           'See more',
                           style: TextStyle(
                             fontSize: 13,
-                            color: Colors.grey[500],
-                            fontWeight: FontWeight.bold,
+                            color: Colors.grey[700],
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                         SizedBox(width: 4),
@@ -213,8 +219,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 text,
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w300,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             )
@@ -250,7 +256,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       flex: 35,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Add action for Send button
+                          DialogHelper.showDevelopmentDialog(context);
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
@@ -259,7 +265,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        child: Text('Send'),
+                        child: Text('Send',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                       ),
                     ),
                     SizedBox(width: 20),
@@ -267,7 +273,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       flex: 35,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Add action for Request button
+                          DialogHelper.showDevelopmentDialog(context);
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
@@ -276,7 +282,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        child: Text('Request'),
+                        child: Text('Request',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                       ),
                     ),
                     SizedBox(width: 20),
@@ -308,6 +314,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 elevation: 0,
                 selectedItemColor: Color(0xFF041433),
                 unselectedItemColor: Color(0xFF555b67),
+                onTap: _onItemTapped,
               ),
             ],
           ),
